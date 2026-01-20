@@ -13,6 +13,9 @@ import jwt from "jsonwebtoken";
 import multer from "multer";
 import cloudinary from "cloudinary";
 import { CloudinaryStorage } from "multer-storage-cloudinary";
+
+const MONGO_URI = process.env.MONGO_URI ;
+
 // const URL = "mongodb+srv://aryansingh726781_db_user:DzSX1yy9ig4irm2X@cluster0.zod8x5c.mongodb.net/?appName=Cluster0"
 const app = express();
 app.use(express.json());
@@ -20,8 +23,7 @@ app.use(cors());
 
 
 // mongoose.connect("mongodb://127.0.0.1:27017/elearning");
-mongoose.connect(
-  "mongodb+srv://aryansingh726781_db_user:DzSX1yy9ig4irm2X@cluster0.zod8x5c.mongodb.net/?appName=Cluster0",
+mongoose.connect( MONGO_URI,
   {
     serverSelectionTimeoutMS: 10000,
   }
